@@ -1,0 +1,136 @@
+body {
+    margin: 0;
+    background-color: #0f0f0f;
+    color: #00ff00;
+    font-family: 'Share Tech Mono', monospace;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .sidebar {
+    width: 200px;
+    background-color: #000000;
+    border-right: 1px solid #00ff00;
+    padding: 1rem;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar a {
+    display: block;
+    color: #00ff00;
+    text-decoration: none;
+    margin-bottom: 1rem;
+  }
+  
+  .sidebar a:hover {
+    text-decoration: underline;
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .header {
+    padding: 1rem;
+    border-bottom: 1px solid #00ff00;
+  }
+  
+  .body {
+    flex-grow: 1;
+    padding: 2rem;
+    overflow-y: auto;
+  }
+  
+  .footer {
+    padding: 1rem;
+    border-top: 1px solid #00ff00;
+    text-align: center;
+    font-size: 0.8rem;
+  }
+  
+  /* DOS Terminal Box */
+  .dos-terminal-box {
+    background-color: #000000;
+    color: #00ff00;
+    border: 3px solid #00ff00;
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 1.1rem;
+    box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.5);
+  }
+  
+  .dos-terminal-box input,
+  .dos-terminal-box textarea,
+  .dos-terminal-box button {
+    background-color: #000000;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    font-family: 'Share Tech Mono', monospace;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 1rem;
+  }
+  
+  .dos-terminal-box button {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dos-terminal-box button:hover {
+    background-color: #00ff00;
+    color: #000000;
+  }
+  
+  /* Style labels and text */
+  .dos-terminal-box label {
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .dos-terminal-box textarea {
+    height: 150px;
+  }
+  
+  /* Blinking Cursor Effect */
+  .blinking-cursor::after {
+    content: "_";
+    animation: blink 1s step-start infinite;
+  }
+  .coming-soon {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00ff00;
+    animation: flash 1.5s infinite;
+  }
+  
+  @keyframes flash {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes blink {
+    50% {
+        opacity: 0;
+    }
+  }
+  
