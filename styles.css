@@ -8,8 +8,9 @@ body {
   
   .container {
     display: flex;
+    flex-wrap: wrap;
     height: 100vh;
-    padding: 1%;
+    padding: 0;
     overflow: hidden;
   }
   
@@ -132,6 +133,7 @@ body {
 
   @media (max-width: 768px) {
     .container {
+      height: auto;
       overflow: visible;
       flex-direction: column;
     }
@@ -146,7 +148,6 @@ body {
   
     .sidebar {
       width: 100%;
-      height: auto;
       border-right: none;
       border-bottom: 1px solid #00ff00;
       display: flex;
