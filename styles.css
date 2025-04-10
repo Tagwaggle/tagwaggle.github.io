@@ -122,7 +122,7 @@ body {
     white-space: nowrap;
     border-right: 0.15em solid #00ff00;
     font-size: 1.5rem;
-    animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
+    animation: typing 3s steps(60, end), blink-caret 0.75s step-end infinite;
     width: 0;
   }
   
@@ -135,7 +135,7 @@ body {
     from, to { border-color: transparent }
     50% { border-color: #00ff00; }
   }
-  
+
   @keyframes flash {
     0% {
       opacity: 1;
