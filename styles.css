@@ -70,7 +70,7 @@ body {
     border: 3px solid #00ff00;
     padding: 20px;
     margin-top: 20px;
-    font-size: .5rem;
+    font-size: 1rem;
     box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.5);
   }
   
@@ -170,6 +170,25 @@ body {
       width: 100%;
       height: auto;
       flex-grow: 1;
+    }
+    .dos-terminal-box {
+      padding: 10px;
+      font-size: 0.9rem;
+    }
+  
+    .dos-terminal-box input,
+    .dos-terminal-box textarea,
+    .dos-terminal-box button {
+      font-size: 0.9rem;
+      padding: 8px;
+    }
+  
+    .coming-soon {
+      font-size: 1.5rem;
+    }
+  
+    .typewriter {
+      font-size: 1.2rem;
     }
   }
   
