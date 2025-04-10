@@ -6,16 +6,19 @@ body {
   }
   
   .container {
-    display: flex;
+    display: fixed;
     height: 100vh;
-    overflow: hidden;
+    overflow: scroll;
   }
   
   .sidebar {
-    width: 250px;
+    display: fixed;
+    width: 10%;
     background-color: #000000;
     border-right: 1px solid #00ff00;
     padding: 1rem;
+    overflow:scroll;
+
   }
   
   .sidebar ul {
@@ -24,10 +27,12 @@ body {
   }
   
   .sidebar a {
-    display: block;
+    display: fixed;
     color: #00ff00;
     text-decoration: none;
     margin-bottom: 1rem;
+    overflow: scroll;
+
   }
   
   .sidebar a:hover {
@@ -35,10 +40,38 @@ body {
   }
   
   .main-content {
-    flex-grow: 1;
-    display: flex;
+    flex-grow: .5;
+    display: fixed;
     flex-direction: column;
+    width: 100% - 250px;
     height: 100vh;
+  }
+  .navbar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #000000;
+    border-bottom: 1px solid #00ff00;
+    padding: 1rem;
+    width: 100%;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .navbar a {
+    color: #00ff00;
+    text-decoration: none;
+    font-size: 1.1rem;
+  }
+  
+  .navbar a:hover {
+    text-decoration: underline;
   }
   
   .header {
@@ -118,14 +151,19 @@ body {
   
   .typewriter {
     display: inline-block;
-    overflow: hidden;
+    overflow:hidden;
     white-space: nowrap;
     border-right: 0.15em solid #00ff00;
     font-size: 1.5rem;
     width: 100%; /* NEW: ensures full width after typing */
     animation: typing 3s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
   }
-  
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
   @keyframes typing {
     from { width: 0 }
     to { width: 100% }
