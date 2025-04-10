@@ -80,6 +80,7 @@ body {
   border-top: 1px solid #00ff00;
   text-align: center;
   font-size: 0.8rem;
+  margin-top: 2rem;
 }
 
 /* DOS Terminal Box */
@@ -215,6 +216,16 @@ body {
     white-space: normal;
     font-size: 1.2rem;
   }
+
+  /* Hangman Game Adjustments for Mobile */
+  .hangman-game {
+    padding: 15px;
+  }
+
+  .hangman-button {
+    width: 100%; /* Full width on mobile */
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -260,22 +271,98 @@ body {
   }
 }
 
-button {
-  background-color: #333; /* Dark background */
-  color: white; /* Text color */
-  font-size: 20px; /* Larger text */
-  width: 100%; /* Full width */
-  padding: 20px; /* Add padding for more area */
-  border: none; /* Remove border */
-  cursor: pointer; /* Change cursor to pointer */
-  text-align: center; /* Center the text */
+/* Hangman Game Styling */
+.hangman-game {
+  background-color: #000000;
+  color: #00ff00;
+  border: 3px solid #00ff00;
+  padding: 20px;
+  margin-top: 20px;
+  font-size: 1rem;
+  box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.5);
 }
 
-button:hover {
+.hangman-word {
+  font-size: 2rem;
+  letter-spacing: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.hangman-input {
+  font-size: 1.5rem;
+  padding: 10px;
+  width: 50px;
+  text-align: center;
+  background-color: #000000;
+  border: 1px solid #00ff00;
+  color: #00ff00;
+  margin-bottom: 10px;
+}
+
+.hangman-input:focus {
+  outline: 3px solid #00ff00;
+}
+
+.hangman-input:hover {
+  border-color: #00ff00;
+}
+
+/* Hangman letter buttons */
+.letters {
+  display: flex; /* Use flexbox to align items side by side */
+  flex-wrap: wrap; /* Allow items to wrap when they reach the container's width */
+  justify-content: center; /* Center align the buttons */
+  width: 30px;
+  gap: 10px; /* Add space between buttons */
+}
+
+.hangman-button {
+  background-color: #333; /* Dark background */
+  color: white; /* Text color */
+  font-size: 20px; /* Text size */
+  padding: 10px 15px; /* Padding to make it comfortable */
+  border: none; /* Remove border */
+  cursor: pointer; /* Pointer cursor on hover */
+  text-align: center; /* Center the text */
+  display: inline-block; /* Display them side by side */
+  margin: 5px; /* Space between buttons */
+  width: 25px; /* Make button just big enough for the letter */
+}
+
+.hangman-button:hover {
   background-color: #555; /* Darker background on hover */
 }
 
-.full-frame-back {
+.hangman-button:disabled {
+  background-color: #555; /* Darker background when disabled */
+  cursor: not-allowed; /* Show "not-allowed" cursor */
+  opacity: 0.5; /* Make it look greyed out */
+}
+
+/* If you have any button that is selected and disabled (example) */
+.hangman-button.selected {
+  background-color: #555; /* Make it look like selected */
+  opacity: 0.5; /* Grey out the selected button */
+}
+
+.hangman-message {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.hangman-image {
+  width: 100%;
+  max-width: 200px;
+  margin-top: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Button styling for restart */
+.hangman-restart-button {
   background-color: #333; /* Dark background */
   color: white; /* Text color */
   font-size: 20px; /* Larger text */
@@ -286,6 +373,6 @@ button:hover {
   text-align: center; /* Center the text */
 }
 
-.full-frame-back:hover {
+.hangman-restart-button:hover {
   background-color: #555; /* Darker background on hover */
 }

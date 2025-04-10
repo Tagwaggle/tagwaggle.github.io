@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me - Joseph Guynes</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="projects.html">Projects</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div class="main-content">
+      <div class="dos-terminal-box">
+        <header class="header">
+          <h1>>_ Legends of the Lance, MUD</h1>
+        </header>
+
+        <main class="body">
+          <h2>Hangman Game</h2>
+          <div class="game-container">
+            <div class="word-display" id="wordDisplay">
+              _ _ _ _ _ 
+            </div>
+            <hr>
+            <div class="hangman-figure" id="hangmanFigure">
+              O
+            </div>
+            <hr>
+            <input type="text" id="inputLetter" class="input-letter" maxlength="1" placeholder="Enter a letter">
+            <button class="guess-button" id="guessButton">Guess</button>
+            <div id="message"></div>
+            <div id="guessedLetters">
+              <p><strong>Guessed Letters:</strong> <span id="guessedLettersList"></span></p>
+            </div>
+          </div>
+        </main>
+      </div>
+      
+      <footer class="footer">
+        <p>&copy; 2025 Joseph Guynes</p>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    const words = ['JAVASCRIPT', 'HTML', 'CSS', 'HANGMAN', 'GAME'];
+    let chosenWord = words[Math.floor(Math.random() * words.length)];
+    let correctGuesses = new Set();
+    let wrongGuesses = new Set();
+    let maxAttempts = 6;
+    let attempts = 0;
+
+    const wordDisplay = document.getElementById('wordDisplay');
+    const hangmanFigure = document.getElementById('hangmanFigure');
+    const inputLetter = document.getElementById('inputLetter');
+    const guessButton = document.getElementById('guessButton');
+    const message = document.getElementById('message');
+    const guessedLettersList = document.getElementById('guessedLettersList');
+
+    function updateWordDisplay() {
+      wordDisplay.innerHTML = '';
+      for (let i = 0; i < chosenWord.length; i++) {
+        if (correctGuesses.has(chosenWord[i])) {
+          wordDisplay.innerHTML += chosenWord[i] + ' ';
+        } else {
+          wordDisplay.innerHTML += '_ ';
+        }
+      }
+    }
+
+    function updateHangman() {
+      const hangmanStages = [
+        '',
+        'O',
+        'O<br>|',
+        'O<br>|<br>/ ',
+        'O<br>|<br>/ \\',
+        'O<br>|<br>/ \\ <br>/ ',
+        'O<br>|<br>/ \\ <br>/ \\'
+      ];
+      hangmanFigure.innerHTML = hangmanStages[attempts];
+    }
+
+    function handleGuess() {
+      const letter = inputLetter.value.toUpperCase();
+
+      if (letter && letter.length === 1 && !correctGuesses.has(letter) && !wrongGuesses.has(letter)) {
+        if (chosenWord.includes(letter)) {
+          correctGuesses.add(letter);
+          message.innerHTML = `Good job! You guessed "${letter}".`;
+        } else {
+          wrongGuesses.add(letter);
+          attempts++;
+          message.innerHTML = `Oops! Wrong guess. You guessed "${letter}".`;
+        }
+        inputLetter.value = '';
+        updateWordDisplay();
+        updateHangman();
+        updateGuessedLetters();
+
+        if (correctGuesses.size === new Set(chosenWord.split('')).size) {
+          message.innerHTML = 'You win! You guessed the word!';
+          guessButton.disabled = true;
+        } else if (attempts === maxAttempts) {
+          message.innerHTML = `Game Over! The word was "${chosenWord}".`;
+          guessButton.disabled = true;
+        }
+      }
+    }
+
+    function updateGuessedLetters() {
+      const allGuesses = [...correctGuesses, ...wrongGuesses].join(', ');
+      guessedLettersList.innerHTML = allGuesses;
+    }
+
+    updateWordDisplay();
+    updateHangman();
+    updateGuessedLetters();
+
+    guessButton.onclick = handleGuess;
+  </script>
+</body>
+</html>
