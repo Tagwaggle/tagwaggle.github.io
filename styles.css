@@ -3,19 +3,21 @@ body {
     background-color: #0f0f0f;
     color: #00ff00;
     font-family: 'Share Tech Mono', monospace;
+    overflow: hidden;
   }
   
   .container {
     display: flex;
     height: 100vh;
+    padding: 1%;
     overflow: hidden;
   }
   
   .sidebar {
-    width: 250px;
+    width: 10%;
     background-color: #000000;
     border-right: 1px solid #00ff00;
-    padding: 1rem;
+    padding:1%;
   }
   
   .sidebar ul {
@@ -27,7 +29,8 @@ body {
     display: block;
     color: #00ff00;
     text-decoration: none;
-    margin-bottom: 1rem;
+    margin: 1rem;
+    margin-right: 1rem;
   }
   
   .sidebar a:hover {
@@ -35,8 +38,9 @@ body {
   }
   
   .main-content {
-    flex-grow: 1;
+    flex-grow: 0;
     display: flex;
+    width: 90%;
     flex-direction: column;
     height: 100vh;
   }
@@ -47,7 +51,7 @@ body {
   }
   
   .body {
-    flex-grow: 1;
+    flex-grow: 0;
     padding: 2rem;
     overflow-y: auto;
   }
@@ -66,7 +70,7 @@ body {
     border: 3px solid #00ff00;
     padding: 20px;
     margin-top: 20px;
-    font-size: 1.1rem;
+    font-size: .5rem;
     box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.5);
   }
   
