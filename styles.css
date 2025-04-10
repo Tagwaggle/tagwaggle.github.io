@@ -132,7 +132,16 @@ body {
 
   @media (max-width: 768px) {
     .container {
+      overflow: visible;
       flex-direction: column;
+    }
+
+    .body {
+      overflow: visible;
+      padding: 1rem;
+      flex-direction: column;
+      overflow-x: hidden;
+      overflow-y: auto;
     }
   
     .sidebar {
@@ -160,6 +169,7 @@ body {
     .main-content {
       width: 100%;
       height: auto;
+      flex-grow: 1;
     }
   }
   
