@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
     margin: 0;
     background-color: #0f0f0f;
@@ -9,9 +13,8 @@ body {
   .container {
     display: flex;
     flex-wrap: wrap;
-    height: 100vh;
-    padding: 0;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden;
   }
   
   .sidebar {
@@ -39,11 +42,9 @@ body {
   }
   
   .main-content {
-    flex-grow: 0;
-    display: flex;
-    width: 90%;
-    flex-direction: column;
-    height: 100vh;
+    flex-grow: 1;
+    height: auto;
+    min-height: 100vh;
   }
   
   .header {
@@ -52,8 +53,9 @@ body {
   }
   
   .body {
-    flex-grow: 0;
+    flex-grow: 1;
     padding: 2rem;
+    overflow-x: hidden;
     overflow-y: auto;
   }
   
@@ -182,7 +184,7 @@ body {
     .dos-terminal-box textarea,
     .dos-terminal-box button {
       font-size: 0.9rem;
-      padding: 8px;
+      padding: 1rem;
     }
   
     .coming-soon {
@@ -190,6 +192,7 @@ body {
     }
   
     .typewriter {
+      white-space: normal;
       font-size: 1.2rem;
     }
   }
