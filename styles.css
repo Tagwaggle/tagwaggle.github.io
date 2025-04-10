@@ -129,6 +129,40 @@ body {
     width: 100%; /* NEW: ensures full width after typing */
     animation: typing 3s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
   }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      width: 100%;
+      height: auto;
+      border-right: none;
+      border-bottom: 1px solid #00ff00;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .sidebar ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 100%;
+    }
+  
+    .sidebar a {
+      margin: 0.5rem;
+      font-size: 1rem;
+    }
+  
+    .main-content {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
   
   @keyframes typing {
     from { width: 0 }
