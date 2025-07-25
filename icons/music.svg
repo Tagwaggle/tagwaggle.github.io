@@ -1,0 +1,13 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" rx="14" fill="url(#music-gradient)"/>
+  <circle cx="24" cy="42" r="6" fill="white" fill-opacity="0.9"/>
+  <circle cx="44" cy="38" r="6" fill="white" fill-opacity="0.9"/>
+  <rect x="30" y="16" width="2" height="22" fill="white"/>
+  <path d="M32 16L48 12V32" stroke="white" stroke-width="2" fill="none"/>
+  <defs>
+    <linearGradient id="music-gradient" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF375F"/>
+      <stop offset="1" stop-color="#FF1744"/>
+    </linearGradient>
+  </defs>
+</svg>

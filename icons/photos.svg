@@ -1,0 +1,20 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" rx="14" fill="url(#photos-gradient)"/>
+  <rect x="12" y="16" width="40" height="32" rx="4" fill="white" fill-opacity="0.9"/>
+  <circle cx="22" cy="26" r="4" fill="url(#sun-gradient)"/>
+  <path d="M12 38L22 28L32 34L42 24L52 32V44C52 46.2091 50.2091 48 48 48H16C13.7909 48 12 46.2091 12 44V38Z" fill="url(#mountain-gradient)"/>
+  <defs>
+    <linearGradient id="photos-gradient" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF9F00"/>
+      <stop offset="1" stop-color="#FF6B00"/>
+    </linearGradient>
+    <linearGradient id="sun-gradient" x1="18" y1="22" x2="26" y2="30" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD60A"/>
+      <stop offset="1" stop-color="#FF9F00"/>
+    </linearGradient>
+    <linearGradient id="mountain-gradient" x1="12" y1="24" x2="52" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#34C759"/>
+      <stop offset="1" stop-color="#30A46C"/>
+    </linearGradient>
+  </defs>
+</svg>
