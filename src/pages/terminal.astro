@@ -1,0 +1,229 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="The Terminal Adventure">
+  <div class="mud-container">
+    <div class="terminal-screen" id="terminal-screen">
+      <p class="intro-text">Welcome to the Single Room Adventure!</p>
+      <p class="intro-text">Type 'help' for available commands.</p>
+      <p class="intro-text">You are in a dimly lit room. To the east, you see a faint light.</p>
+    </div>
+    <div class="terminal-input-wrapper">
+      <span class="prompt">></span>
+      <input type="text" id="terminal-input" autofocus autocomplete="off">
+    </div>
+  </div>
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const terminalScreen = document.getElementById('terminal-screen');
+    const terminalInput = document.getElementById('terminal-input');
+
+    // --- Game State ---
+    let playerLocation = 'start_room';
+    let goblinAlive = true;
+    let goblinHealth = 20;
+    const playerDamage = 10; // Player's fixed damage
+    let corpseLooted = false;
+    let inventory = [];
+
+    // --- Helper Functions ---
+    function appendToTerminal(text) {
+      const p = document.createElement('p');
+      p.textContent = text;
+      terminalScreen.appendChild(p);
+      terminalScreen.scrollTop = terminalScreen.scrollHeight; // Auto-scroll to bottom
+    }
+
+    function processCommand(command) {
+      command = command.toLowerCase().trim();
+      appendToTerminal(`> ${command}`); // Echo the command
+
+      if (command === 'help') {
+        appendToTerminal("Available commands: 'look', 'go [direction]', 'kill [target]', 'loot [target]', 'inventory'");
+      } else if (command === 'look') {
+        if (playerLocation === 'start_room') {
+          appendToTerminal("You are in a small, dusty room. There's an exit to the east.");
+        } else if (playerLocation === 'goblin_room') {
+          if (goblinAlive) {
+            appendToTerminal("You are in a damp cave. A snarling goblin stands before you, wielding a rusty dagger.");
+          } else {
+            appendToTerminal("You are in a damp cave. The goblin's lifeless body lies on the ground.");
+            if (!corpseLooted) {
+                appendToTerminal("You could probably 'loot corpse'.");
+            }
+          }
+        }
+      } else if (command.startsWith('go ')) {
+        const direction = command.substring(3);
+        if (direction === 'east') {
+          if (playerLocation === 'start_room') {
+            playerLocation = 'goblin_room';
+            appendToTerminal("You cautiously proceed east.");
+            if (goblinAlive) {
+              appendToTerminal("A snarling goblin blocks your path! Its eyes glow red.");
+            } else {
+                appendToTerminal("You enter the cave. The goblin's corpse is still here.");
+            }
+          } else if (playerLocation === 'goblin_room') {
+            appendToTerminal("You can't go any further east from here.");
+          }
+        } else {
+          appendToTerminal(`You can't go ${direction}.`);
+        }
+      } else if (command.startsWith('kill ')) {
+        const target = command.substring(5);
+        if (playerLocation === 'goblin_room' && target === 'goblin') {
+          if (goblinAlive) {
+            goblinHealth -= playerDamage;
+            appendToTerminal(`You strike the goblin for ${playerDamage} damage!`);
+            if (goblinHealth <= 0) {
+              goblinAlive = false;
+              appendToTerminal("The goblin lets out a shriek and falls to the ground, defeated!");
+              appendToTerminal("You have vanquished the goblin!");
+            } else {
+              appendToTerminal(`The goblin glares at you. Its remaining health: ${goblinHealth}.`);
+            }
+          } else {
+            appendToTerminal("The goblin is already dead.");
+          }
+        } else {
+          appendToTerminal(`You can't kill ${target} here.`);
+        }
+      } else if (command.startsWith('loot ')) {
+        const target = command.substring(5);
+        if (playerLocation === 'goblin_room' && target === 'corpse') {
+          if (!goblinAlive && !corpseLooted) {
+            inventory.push('golden egg');
+            corpseLooted = true;
+            appendToTerminal("You carefully search the goblin's corpse and find a shimmering golden egg!");
+            appendToTerminal("A golden egg has been added to your inventory.");
+          } else if (corpseLooted) {
+            appendToTerminal("There's nothing left to loot here.");
+          } else {
+            appendToTerminal("The goblin isn't dead yet.");
+          }
+        } else {
+          appendToTerminal(`You can't loot ${target}.`);
+        }
+      } else if (command === 'inventory') { // **COMPLETED THIS BLOCK**
+        if (inventory.length === 0) {
+          appendToTerminal("Your inventory is empty.");
+        } else {
+          appendToTerminal("Inventory: " + inventory.join(', '));
+        }
+      }
+      // **DEFAULT UNRECOGNIZED COMMAND**
+      else {
+        appendToTerminal(`Unrecognized command: '${command}'. Type 'help' for a list of commands.`);
+      }
+
+      // Clear input after processing
+      terminalInput.value = '';
+    }
+
+    // --- Event Listener for Input ---
+    terminalInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        processCommand(terminalInput.value);
+      }
+    });
+
+    // Focus on input when page loads
+    terminalInput.focus();
+  });
+</script>
+
+<style>
+  /* Basic reset to ensure consistent terminal look */
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Prevent body scroll */
+  }
+
+  /* Main container for the MUD, fills the screen */
+  .mud-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 90vh; /* Full viewport height */
+    background-color: #1a1a1a; /* Dark terminal background */
+    color: #00ff00; /* Classic green terminal text */
+    font-family: 'monospace', 'Courier New', Courier, monospace; /* Monospace font */
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in width/height */
+  }
+
+  /* Terminal screen for output */
+  .terminal-screen {
+    flex-grow: 1; /* Takes up available vertical space */
+    overflow-y: auto; /* Enable scrolling for long output */
+    border: 1px solid #006600; /* Subtle green border */
+    padding: 30px 30px;
+    margin-bottom: 10px;
+    background-color: #000000; /* Even darker screen background */
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Subtle glow */
+    border-radius: 5px;
+    white-space: pre-wrap; /* Preserve whitespace and wrap text */
+  }
+
+  .terminal-screen p {
+    margin: 0; /* Remove default paragraph margins */
+    line-height: 1.4;
+  }
+
+  .intro-text {
+    color: #00ee00; /* Slightly brighter green for intro text */
+  }
+
+  /* Input wrapper (prompt + input field) */
+  .terminal-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .prompt {
+    color: #00ff00; /* Green prompt */
+    font-size: 1.1em;
+  }
+
+  #terminal-input {
+    flex-grow: 1; /* Takes up remaining horizontal space */
+    background-color: #000000; /* Dark input background */
+    color: #00ff00; /* Green input text */
+    border: none; /* No default border */
+    border-bottom: 1px solid #006600; /* Underline effect */
+    outline: none; /* Remove focus outline */
+    font-family: 'monospace', 'Courier New', Courier, monospace;
+    font-size: 1em;
+    padding: 5px 0;
+  }
+
+  #terminal-input:focus {
+    border-color: #00ff00; /* Highlight border on focus */
+  }
+
+  /* Basic scrollbar styling for a terminal look (optional, customize as desired) */
+  .terminal-screen::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .terminal-screen::-webkit-scrollbar-track {
+    background: #1a1a1a;
+  }
+
+  .terminal-screen::-webkit-scrollbar-thumb {
+    background: #004400;
+    border-radius: 4px;
+  }
+
+  .terminal-screen::-webkit-scrollbar-thumb:hover {
+    background: #006600;
+  }
+</style>

@@ -1,0 +1,19 @@
+---
+import Taskbar from '../components/Taskbar.astro';
+import Dock from '../components/Dock.astro';
+const { title } = Astro.props;
+---
+<html lang="en">
+  <head>
+    <title>{title}</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="bg-gradient-to-br from-gray-900 to-gray-800 text-white min-h-screen pt-12 pb-16 relative">
+    <Taskbar />
+    <main class="max-w-4xl mx-auto px-4">
+      <slot />
+    </main>
+    <Dock />
+  </body>
+</html>

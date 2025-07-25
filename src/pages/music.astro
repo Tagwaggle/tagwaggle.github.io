@@ -1,0 +1,210 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Modal from '../components/Modal.astro'; // Keep Modal imported here for the Dollyrots Bio modal component
+
+const dollyrotsBio = `The Dollyrots combine the energy of punk with the bubblegum hooks of pop while nimbly mixing exuberant noise and sweet melody. Their sunny, hooky songs are easy to digest, and albums like 2010's A Little Messed Up, 2017's Whiplash Splash, and 2019's Daydream Explosion show off a streamlined, mainstream brand of punk-pop that has landed their songs in numerous commercials and TV shows. The band continue to tour frequently and keep the punk-pop flame alive, releasing their ninth studio effort, Night Owls, in 2023.`;
+
+// Truncate the bio for the card display
+const truncatedBio = dollyrotsBio.substring(0, 120) + '...'; // Adjust length as needed
+
+// --- VIDEO DETAILS FOR EXTERNAL LINK ---
+const videoTitle = "Because I'm Awesome";
+const youtubeVideoUrl = "http://googleusercontent.com/youtube.com/watch?v=4oW4v9g1nF0"; // Direct YouTube URL for "Because I'm Awesome"
+
+// Path to your custom thumbnail image for the video
+const customVideoThumbnailPath = '/images/dolly1.png'; // Confirmed thumbnail path
+
+// --- SPOTIFY PLAYLIST DETAILS ---
+const playlistTitle = "The Dollyrots Official Playlist";
+const spotifyPlaylistUrl = "https://open.spotify.com/playlist/37i9dQZF1DZ06evO14bUXo?si=LYmKYT0FSuOGqn1azYTs9w"; // **REPLACE WITH THE ACTUAL SPOTIFY PLAYLIST URL**
+
+---
+
+<Layout title="Music - macOS Website">
+  <div class="page-content">
+    <div class="hero-section">
+      <h1 class="hero-title">Discover Your Next Favorite Sound</h1>
+      <p class="hero-subtitle">Explore artists, albums, and tracks from the vast music catalog.</p>
+
+      <div class="feature-cards">
+        <div class="feature-card" id="dollyrots-card">
+          <div class="feature-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke="round" class="lucide lucide-users">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3>The Dollyrots</h3>
+          <p>{truncatedBio}</p>
+          <button id="open-dollyrots-modal" class="card-button">Read More</button>
+        </div>
+
+        <div class="feature-card" id="video-card">
+          <div class="feature-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke="round" class="lucide lucide-play-circle">
+              <circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/>
+            </svg>
+          </div>
+          <h3>{videoTitle}</h3>
+          <a href={youtubeVideoUrl} target="_blank" rel="noopener noreferrer">
+            <img src={customVideoThumbnailPath} alt={videoTitle} style="max-width: 100%; height: auto; border-radius: 8px; margin-top: 15px;" />
+          </a>
+          <a href={youtubeVideoUrl} target="_blank" rel="noopener noreferrer" class="card-button" style="display: inline-block; text-decoration: none;">
+            Watch Video
+          </a>
+        </div>
+
+        <div class="feature-card" id="playlist-card">
+          <div class="feature-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke="round" class="lucide lucide-music">
+              <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+            </svg>
+          </div>
+          <h3>{playlistTitle}</h3>
+          <p>Listen to a collection of The Dollyrots' awesome tracks on Spotify!</p>
+          <a href={spotifyPlaylistUrl} target="_blank" rel="noopener noreferrer" class="card-button" style="display: inline-block; text-decoration: none;">
+            Listen on Spotify
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <Modal id="dollyrots-bio" title="The Dollyrots Bio" content={dollyrotsBio} />
+
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // --- Dollyrots Bio Modal Logic ---
+    const openDollyrotsModalButton = document.getElementById('open-dollyrots-modal');
+    const dollyrotsModalElement = document.getElementById('modal-dollyrots-bio'); // ID matches the Modal component's ID prop prepended with 'modal-'
+
+    if (openDollyrotsModalButton && dollyrotsModalElement) {
+      openDollyrotsModalButton.addEventListener('click', () => {
+        dollyrotsModalElement.style.display = 'flex';
+      });
+
+      // Close modal on background click or close button
+      dollyrotsModalElement.addEventListener('click', (e) => {
+        if (e.target.id === 'modal-dollyrots-bio' || e.target.closest('.modal-close-button')) {
+          dollyrotsModalElement.style.display = 'none';
+        }
+      });
+
+      // Close modal on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && dollyrotsModalElement.style.display === 'flex') {
+          dollyrotsModalElement.style.display = 'none';
+        }
+      });
+    }
+
+    // No specific JS needed for the video card or playlist card as they are direct links.
+  });
+</script>
+
+<style>
+  /* Your styles from previous versions remain unchanged */
+  .page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    padding: 40px 20px;
+  }
+
+  .hero-section {
+    text-align: center;
+    max-width: 800px;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #1d1d1f;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+    color: #1b1b2eff;
+    margin-bottom: 48px;
+    font-weight: 400;
+  }
+
+  .feature-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 32px;
+    margin-top: 48px;
+  }
+
+  .feature-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #007AFF, #0056CC);
+    border-radius: 16px;
+    margin: 0 auto 20px;
+    color: white;
+  }
+
+  .feature-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 12px;
+  }
+
+  .feature-card p {
+    color: #6e6e73;
+    line-height: 1.5;
+  }
+
+  .card-button {
+    background: #007AFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: background-color 0.2s ease;
+  }
+
+  .card-button:hover {
+    background-color: #0056CC;
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .feature-cards {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+</style>
