@@ -1,3 +1,767 @@
-<!DOCTYPE html><html lang="en" data-astro-cid-sckkx6r4> <head><meta charset="UTF-8"><meta name="description" content="macOS-inspired website"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>The Terminal Adventure</title><style>html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden}.mud-container[data-astro-cid-pv3mjk72]{display:flex;flex-direction:column;width:100%;height:90vh;background-color:#1a1a1a;color:#0f0;font-family:"monospace",Courier New,Courier,monospace;padding:20px;box-sizing:border-box}.terminal-screen[data-astro-cid-pv3mjk72]{flex-grow:1;overflow-y:auto;border:1px solid #006600;padding:30px;margin-bottom:10px;background-color:#000;box-shadow:0 0 5px #00ff0080;border-radius:5px;white-space:pre-wrap}.terminal-screen[data-astro-cid-pv3mjk72] p[data-astro-cid-pv3mjk72]{margin:0;line-height:1.4}.intro-text[data-astro-cid-pv3mjk72]{color:#0e0}.terminal-input-wrapper[data-astro-cid-pv3mjk72]{display:flex;align-items:center;gap:5px}.prompt[data-astro-cid-pv3mjk72]{color:#0f0;font-size:1.1em}#terminal-input[data-astro-cid-pv3mjk72]{flex-grow:1;background-color:#000;color:#0f0;border:none;border-bottom:1px solid #006600;outline:none;font-family:"monospace",Courier New,Courier,monospace;font-size:1em;padding:5px 0}#terminal-input[data-astro-cid-pv3mjk72]:focus{border-color:#0f0}.terminal-screen[data-astro-cid-pv3mjk72]::-webkit-scrollbar{width:8px}.terminal-screen[data-astro-cid-pv3mjk72]::-webkit-scrollbar-track{background:#1a1a1a}.terminal-screen[data-astro-cid-pv3mjk72]::-webkit-scrollbar-thumb{background:#040;border-radius:4px}.terminal-screen[data-astro-cid-pv3mjk72]::-webkit-scrollbar-thumb:hover{background:#060}
-</style>
-<link rel="stylesheet" href="/_astro/about.DQ1ApP2S.css"></head> <body data-astro-cid-sckkx6r4> <div class="desktop" data-astro-cid-sckkx6r4> <div class="menu-bar-container" data-astro-cid-sckkx6r4> <div class="menu-bar" id="menuBar" data-astro-cid-sckkx6r4> <div class="menu-bar-content" data-astro-cid-thzxgp7c> <div class="menu-left" data-astro-cid-thzxgp7c> <div class="apple-logo" data-astro-cid-thzxgp7c> <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" data-astro-cid-thzxgp7c> <path d="M11.182 2.236c.788-.055 1.418.447 1.418 1.447 0 .894-.553 1.553-1.341 1.608-.735.055-1.473-.447-1.473-1.394 0-.894.629-1.608 1.396-1.661z" data-astro-cid-thzxgp7c></path> <path d="M8.5 4c.828 0 1.5.672 1.5 1.5v5c0 .828-.672 1.5-1.5 1.5h-5C2.672 12 2 11.328 2 10.5v-5C2 4.672 2.672 4 3.5 4h5zm0 1h-5a.5.5 0 0 0-.5.5v5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 .5-.5v-5a.5.5 0 0 0-.5-.5z" data-astro-cid-thzxgp7c></path> </svg> </div> <span class="app-name" data-astro-cid-thzxgp7c>Joseph Guynes, MBA</span> </div> <div class="menu-center" data-astro-cid-thzxgp7c> <nav class="menu-nav" data-astro-cid-thzxgp7c> <a href="/" class="menu-link" data-astro-cid-thzxgp7c>Home</a> <a href="/about" class="menu-link" data-astro-cid-thzxgp7c>About</a> <a href="/portfolio" class="menu-link" data-astro-cid-thzxgp7c>Portfolio</a> <a href="/contact" class="menu-link" data-astro-cid-thzxgp7c>Contact</a> <a href="/music" class="menu-link" data-astro-cid-thzxgp7c>Music</a> <a href="/terminal" class="menu-link" data-astro-cid-thzxgp7c>Terminal</a> <a href="/settings" class="menu-link" data-astro-cid-thzxgp7c>Settings</a> </nav> </div> <div class="menu-right" data-astro-cid-thzxgp7c> <div class="menu-icons" data-astro-cid-thzxgp7c> <div class="menu-icon" data-astro-cid-thzxgp7c> <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" data-astro-cid-thzxgp7c> <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" data-astro-cid-thzxgp7c></path> </svg> </div> <div class="menu-icon time" data-astro-cid-thzxgp7c> <span id="current-time" data-astro-cid-thzxgp7c></span> </div> </div> </div> </div> <script type="module">function e(){const n=new Date().toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit",hour12:!0}),t=document.getElementById("current-time");t&&(t.textContent=n)}e();setInterval(e,1e3);</script>  </div> </div> <main class="main-content" data-astro-cid-sckkx6r4>  <div class="mud-container" data-astro-cid-pv3mjk72> <div class="terminal-screen" id="terminal-screen" data-astro-cid-pv3mjk72> <p class="intro-text" data-astro-cid-pv3mjk72>Welcome to the Single Room Adventure!</p> <p class="intro-text" data-astro-cid-pv3mjk72>Type 'help' for available commands.</p> <p class="intro-text" data-astro-cid-pv3mjk72>You are in a dimly lit room. To the east, you see a faint light.</p> </div> <div class="terminal-input-wrapper" data-astro-cid-pv3mjk72> <span class="prompt" data-astro-cid-pv3mjk72>></span> <input type="text" id="terminal-input" autofocus autocomplete="off" data-astro-cid-pv3mjk72> </div> </div>  </main> <div class="dock-container" data-astro-cid-sckkx6r4> <div class="dock" id="dock" data-astro-cid-sckkx6r4> <div class="dock-content" data-astro-cid-xuahrkkb> <a href="/" class="dock-icon" title="Finder" data-astro-cid-fbtbx2mg> <img src="/icons/finder.svg" alt="Finder" class="dock-icon-image" data-astro-cid-fbtbx2mg> <div class="dock-icon-indicator" data-astro-cid-fbtbx2mg></div> </a> <a href="/about" class="dock-icon" title="Safari" data-astro-cid-fbtbx2mg> <img src="/icons/safari.svg" alt="Safari" class="dock-icon-image" data-astro-cid-fbtbx2mg> <div class="dock-icon-indicator" data-astro-cid-fbtbx2mg></div> </a> <a href="/contact" class="dock-icon" title="Mail" data-astro-cid-fbtbx2mg> <img src="/icons/mail.svg" alt="Mail" class="dock-icon-image" data-astro-cid-fbtbx2mg> <div class="dock-icon-indicator" data-astro-cid-fbtbx2mg></div> </a> <a href="/portfolio" class="dock-icon" title="Photos" data-astro-cid-fbtbx2mg> <img src="/icons/photos.svg" alt="Photos" class="dock-icon-image" data-astro-cid-fbtbx2mg> <div class="dock-icon-indicator" data-astro-cid-fbtbx2mg></div> </a> <a href="/music" class="dock-icon" title="Music" data-astro-cid-fbtbx2mg> <img src="/icons/music.svg" alt="Music" class="dock-icon-image" data-astro-cid-fbtbx2mg> <div class="dock-icon-indicator" data-astro-cid-fbtbx2mg></div> </a> <a href="/terminal" class="dock-icon" title="Terminal" data-astro-cid-fbtbx2mg> <img src="/icons/terminal.svg" alt="Terminal" class="dock-icon-image" data-astro-cid-fbtbx2mg> <div class="dock-icon-indicator" data-astro-cid-fbtbx2mg></div> </a> <a href="/settings" class="dock-icon" title="Settings" data-astro-cid-fbtbx2mg> <img src="/icons/settings.svg" alt="Settings" class="dock-icon-image" data-astro-cid-fbtbx2mg> <div class="dock-icon-indicator" data-astro-cid-fbtbx2mg></div> </a>  </div>  </div> </div> </div>  <script type="module">document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".menu-link").forEach(t=>{t.addEventListener("click",function(e){e.preventDefault();const n=this.getAttribute("href");n&&(window.location.href=n)})});const s=document.querySelectorAll(".dock-icon"),r=document.getElementById("dock"),o=()=>window.matchMedia("(max-width: 768px)").matches;s.forEach(t=>{t.addEventListener("mouseenter",function(){if(!o()){this.style.transform="translateY(-20px) scale(1.5)",this.style.zIndex="10";const e=Array.from(s),n=e.indexOf(this);n>0&&(e[n-1].style.transform="translateY(-10px) scale(1.2)"),n<e.length-1&&(e[n+1].style.transform="translateY(-10px) scale(1.2)")}}),t.addEventListener("mouseleave",function(){o()||setTimeout(()=>{r.matches(":hover")||s.forEach(e=>{e.style.transform="translateY(0) scale(1)",e.style.zIndex="1"})},100)})}),r.addEventListener("mouseleave",function(){o()||s.forEach(t=>{t.style.transform="translateY(0) scale(1)",t.style.zIndex="1"})});let a=o();window.addEventListener("resize",()=>{const t=o();a!==t&&(s.forEach(e=>{e.style.transform="",e.style.zIndex=""}),a=t)})});</script> </body> </html> <script type="module">document.addEventListener("DOMContentLoaded",()=>{const r=document.getElementById("terminal-screen"),i=document.getElementById("terminal-input");let l="start_room",n=!0,a=20;const u=10;let s=!1,g=[];function e(o){const t=document.createElement("p");t.textContent=o,r.appendChild(t),r.scrollTop=r.scrollHeight}function d(o){if(o=o.toLowerCase().trim(),e(`> ${o}`),o==="help")e("Available commands: 'look', 'go [direction]', 'kill [target]', 'loot [target]', 'inventory'");else if(o==="look")l==="start_room"?e("You are in a small, dusty room. There's an exit to the east."):l==="goblin_room"&&(n?e("You are in a damp cave. A snarling goblin stands before you, wielding a rusty dagger."):(e("You are in a damp cave. The goblin's lifeless body lies on the ground."),s||e("You could probably 'loot corpse'.")));else if(o.startsWith("go ")){const t=o.substring(3);t==="east"?l==="start_room"?(l="goblin_room",e("You cautiously proceed east."),e(n?"A snarling goblin blocks your path! Its eyes glow red.":"You enter the cave. The goblin's corpse is still here.")):l==="goblin_room"&&e("You can't go any further east from here."):e(`You can't go ${t}.`)}else if(o.startsWith("kill ")){const t=o.substring(5);l==="goblin_room"&&t==="goblin"?n?(a-=u,e(`You strike the goblin for ${u} damage!`),a<=0?(n=!1,e("The goblin lets out a shriek and falls to the ground, defeated!"),e("You have vanquished the goblin!")):e(`The goblin glares at you. Its remaining health: ${a}.`)):e("The goblin is already dead."):e(`You can't kill ${t} here.`)}else if(o.startsWith("loot ")){const t=o.substring(5);l==="goblin_room"&&t==="corpse"?!n&&!s?(g.push("golden egg"),s=!0,e("You carefully search the goblin's corpse and find a shimmering golden egg!"),e("A golden egg has been added to your inventory.")):e(s?"There's nothing left to loot here.":"The goblin isn't dead yet."):e(`You can't loot ${t}.`)}else o==="inventory"?g.length===0?e("Your inventory is empty."):e("Inventory: "+g.join(", ")):e(`Unrecognized command: '${o}'. Type 'help' for a list of commands.`);i.value=""}i.addEventListener("keypress",o=>{o.key==="Enter"&&d(i.value)}),i.focus()});</script> 
+<!DOCTYPE html><html lang="en" data-astro-cid-sckkx6r4> <head><meta charset="UTF-8"><meta name="description" content="macOS-inspired website"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>The Terminal Adventure</title><link rel="stylesheet" href="/_astro/about.DQ1ApP2S.css">
+<style>.mud-container[data-astro-cid-pv3mjk72]{max-width:1000px;margin:0 auto;padding:20px;font-family:Courier New,monospace;background:linear-gradient(135deg,#1e3c72,#2a5298);min-height:80vh;border-radius:10px;box-shadow:0 10px 30px #0000004d}.terminal-screen[data-astro-cid-pv3mjk72]{background:#000;color:#0f0;padding:20px;height:400px;overflow-y:auto;border:2px solid #333;border-radius:5px;margin-bottom:20px;font-size:14px;line-height:1.4}.terminal-screen[data-astro-cid-pv3mjk72] p[data-astro-cid-pv3mjk72]{margin:5px 0}.intro-text[data-astro-cid-pv3mjk72]{color:#ff0!important;font-weight:700}.terminal-input-wrapper[data-astro-cid-pv3mjk72]{display:flex;align-items:center;margin-bottom:20px}.prompt[data-astro-cid-pv3mjk72]{color:#0f0;font-weight:700;margin-right:10px;font-size:16px}#terminal-input[data-astro-cid-pv3mjk72]{flex:1;background:#000;color:#0f0;border:2px solid #333;padding:10px;font-family:Courier New,monospace;font-size:14px;border-radius:3px}#terminal-input[data-astro-cid-pv3mjk72]:focus{outline:none;border-color:#0f0}.command-buttons[data-astro-cid-pv3mjk72]{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.command-button[data-astro-cid-pv3mjk72]{background:linear-gradient(135deg,#4caf50,#45a049);color:#fff;border:none;padding:10px 15px;border-radius:5px;cursor:pointer;font-family:Courier New,monospace;font-size:12px;transition:all .3s ease}.command-button[data-astro-cid-pv3mjk72]:hover{background:linear-gradient(135deg,#45a049,#3d8b40);transform:translateY(-2px);box-shadow:0 4px 8px #0003}.modal-overlay[data-astro-cid-pv3mjk72]{position:fixed;top:0;left:0;width:100%;height:100%;background:#000c;display:flex;justify-content:center;align-items:center;z-index:1000}.modal-content[data-astro-cid-pv3mjk72]{background:linear-gradient(135deg,#2c3e50,#34495e);padding:30px;border-radius:10px;max-width:600px;max-height:80vh;overflow-y:auto;color:#fff;font-family:Courier New,monospace;position:relative;box-shadow:0 20px 40px #00000080}.modal-close-button[data-astro-cid-pv3mjk72]{position:absolute;top:10px;right:15px;background:none;border:none;color:#fff;font-size:24px;cursor:pointer;padding:0;width:30px;height:30px;display:flex;align-items:center;justify-content:center}.modal-close-button[data-astro-cid-pv3mjk72]:hover{color:#ff6b6b}.modal-title[data-astro-cid-pv3mjk72]{margin-top:0;color:#0f0;border-bottom:2px solid #00ff00;padding-bottom:10px}.modal-body[data-astro-cid-pv3mjk72]{line-height:1.6}
+</style></head> <body data-astro-cid-sckkx6r4> <div class="desktop" data-astro-cid-sckkx6r4> <div class="menu-bar-container" data-astro-cid-sckkx6r4> <div class="menu-bar" id="menuBar" data-astro-cid-sckkx6r4> <div class="menu-bar-content" data-astro-cid-thzxgp7c> <div class="menu-left" data-astro-cid-thzxgp7c> <div class="apple-logo" data-astro-cid-thzxgp7c> <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" data-astro-cid-thzxgp7c> <path d="M11.182 2.236c.788-.055 1.418.447 1.418 1.447 0 .894-.553 1.553-1.341 1.608-.735.055-1.473-.447-1.473-1.394 0-.894.629-1.608 1.396-1.661z" data-astro-cid-thzxgp7c></path> <path d="M8.5 4c.828 0 1.5.672 1.5 1.5v5c0 .828-.672 1.5-1.5 1.5h-5C2.672 12 2 11.328 2 10.5v-5C2 4.672 2.672 4 3.5 4h5zm0 1h-5a.5.5 0 0 0-.5.5v5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 .5-.5v-5a.5.5 0 0 0-.5-.5z" data-astro-cid-thzxgp7c></path> </svg> </div> <span class="app-name" data-astro-cid-thzxgp7c>Joseph Guynes, MBA</span> </div> <div class="menu-center" data-astro-cid-thzxgp7c> <nav class="menu-nav" data-astro-cid-thzxgp7c> <a href="/" class="menu-link" data-astro-cid-thzxgp7c>Home</a> <a href="/about" class="menu-link" data-astro-cid-thzxgp7c>About</a> <a href="/portfolio" class="menu-link" data-astro-cid-thzxgp7c>Portfolio</a> <a href="/contact" class="menu-link" data-astro-cid-thzxgp7c>Contact</a> <a href="/music" class="menu-link" data-astro-cid-thzxgp7c>Music</a> <a href="/terminal" class="menu-link" data-astro-cid-thzxgp7c>Terminal</a> <a href="/settings" class="menu-link" data-astro-cid-thzxgp7c>Settings</a> </nav> </div> <div class="menu-right" data-astro-cid-thzxgp7c> <div class="menu-icons" data-astro-cid-thzxgp7c> <div class="menu-icon" data-astro-cid-thzxgp7c> <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" data-astro-cid-thzxgp7c> <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" data-astro-cid-thzxgp7c></path> </svg> </div> <div class="menu-icon time" data-astro-cid-thzxgp7c> <span id="current-time" data-astro-cid-thzxgp7c></span> </div> </div> </div> </div> <script type="module">function e(){const n=new Date().toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit",hour12:!0}),t=document.getElementById("current-time");t&&(t.textContent=n)}e();setInterval(e,1e3);</script>  </div> </div> <main class="main-content" data-astro-cid-sckkx6r4>  <div class="mud-container" data-astro-cid-pv3mjk72> <div class="terminal-screen" id="terminal-screen" role="log" aria-live="polite" data-astro-cid-pv3mjk72> <p class="intro-text" data-astro-cid-pv3mjk72>Welcome to the Terminal Adventure!</p> <p class="intro-text" data-astro-cid-pv3mjk72>Type 'help' for available commands.</p> </div> <div class="terminal-input-wrapper" data-astro-cid-pv3mjk72> <span class="prompt" data-astro-cid-pv3mjk72>></span> <input type="text" id="terminal-input" autofocus autocomplete="off" aria-label="Enter command" data-astro-cid-pv3mjk72> </div> <!-- Command buttons container --> <div class="command-buttons" id="command-buttons" aria-label="Available commands" data-astro-cid-pv3mjk72></div> </div>  <div id="modal-overlay" class="modal-overlay" style="display: none;" data-astro-cid-pv3mjk72> <div class="modal-content" data-astro-cid-pv3mjk72> <button class="modal-close-button" aria-label="Close modal" id="modal-close-btn" data-astro-cid-pv3mjk72>
+×
+</button> <h3 class="modal-title" id="modal-title" data-astro-cid-pv3mjk72>Modal Title</h3> <div class="modal-body" id="modal-body" data-astro-cid-pv3mjk72></div> <button id="modal-attack-btn" style="display:none; margin-top: 20px; padding: 10px 20px; font-size: 1rem; cursor: pointer;" data-astro-cid-pv3mjk72>
+Attack Again
+</button> </div> </div>  </main> <div class="dock-container" data-astro-cid-sckkx6r4> <div class="dock" id="dock" data-astro-cid-sckkx6r4> <div class="dock-content" data-astro-cid-xuahrkkb> <a href="/" class="dock-icon" title="Finder" data-astro-cid-fbtbx2mg> <img src="/icons/finder.svg" alt="Finder" class="dock-icon-image" data-astro-cid-fbtbx2mg> <div class="dock-icon-indicator" data-astro-cid-fbtbx2mg></div> </a> <a href="/about" class="dock-icon" title="Safari" data-astro-cid-fbtbx2mg> <img src="/icons/safari.svg" alt="Safari" class="dock-icon-image" data-astro-cid-fbtbx2mg> <div class="dock-icon-indicator" data-astro-cid-fbtbx2mg></div> </a> <a href="/contact" class="dock-icon" title="Mail" data-astro-cid-fbtbx2mg> <img src="/icons/mail.svg" alt="Mail" class="dock-icon-image" data-astro-cid-fbtbx2mg> <div class="dock-icon-indicator" data-astro-cid-fbtbx2mg></div> </a> <a href="/portfolio" class="dock-icon" title="Photos" data-astro-cid-fbtbx2mg> <img src="/icons/photos.svg" alt="Photos" class="dock-icon-image" data-astro-cid-fbtbx2mg> <div class="dock-icon-indicator" data-astro-cid-fbtbx2mg></div> </a> <a href="/music" class="dock-icon" title="Music" data-astro-cid-fbtbx2mg> <img src="/icons/music.svg" alt="Music" class="dock-icon-image" data-astro-cid-fbtbx2mg> <div class="dock-icon-indicator" data-astro-cid-fbtbx2mg></div> </a> <a href="/terminal" class="dock-icon" title="Terminal" data-astro-cid-fbtbx2mg> <img src="/icons/terminal.svg" alt="Terminal" class="dock-icon-image" data-astro-cid-fbtbx2mg> <div class="dock-icon-indicator" data-astro-cid-fbtbx2mg></div> </a> <a href="/settings" class="dock-icon" title="Settings" data-astro-cid-fbtbx2mg> <img src="/icons/settings.svg" alt="Settings" class="dock-icon-image" data-astro-cid-fbtbx2mg> <div class="dock-icon-indicator" data-astro-cid-fbtbx2mg></div> </a>  </div>  </div> </div> </div>  <script type="module">document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".menu-link").forEach(t=>{t.addEventListener("click",function(e){e.preventDefault();const n=this.getAttribute("href");n&&(window.location.href=n)})});const s=document.querySelectorAll(".dock-icon"),r=document.getElementById("dock"),o=()=>window.matchMedia("(max-width: 768px)").matches;s.forEach(t=>{t.addEventListener("mouseenter",function(){if(!o()){this.style.transform="translateY(-20px) scale(1.5)",this.style.zIndex="10";const e=Array.from(s),n=e.indexOf(this);n>0&&(e[n-1].style.transform="translateY(-10px) scale(1.2)"),n<e.length-1&&(e[n+1].style.transform="translateY(-10px) scale(1.2)")}}),t.addEventListener("mouseleave",function(){o()||setTimeout(()=>{r.matches(":hover")||s.forEach(e=>{e.style.transform="translateY(0) scale(1)",e.style.zIndex="1"})},100)})}),r.addEventListener("mouseleave",function(){o()||s.forEach(t=>{t.style.transform="translateY(0) scale(1)",t.style.zIndex="1"})});let a=o();window.addEventListener("resize",()=>{const t=o();a!==t&&(s.forEach(e=>{e.style.transform="",e.style.zIndex=""}),a=t)})});</script> </body> </html> <script>(function(){const rooms = {"room1":{"name":"Dusty Cellar","description":"You stand in a damp, dark cellar. Cobwebs hang in the corners.","image":"/images/rooms/cellar.jpg","exits":{"north":"room2"},"items":["torch"],"mobs":["rat1"]},"room2":{"name":"Stone Hallway","description":"The hallway echoes with distant footsteps. Moss creeps along the walls.","image":"/images/rooms/hallway.jpg","exits":{"south":"room1","east":"room3"},"items":[],"mobs":["guard1"]},"room3":{"name":"It's a trap!","description":"You are trapped in a room with no exit. The walls are closing in!","image":"/images/rooms/trap.jpg","exits":{},"items":[],"mobs":["guard2","guard3"]}};
+const mobs = {"rat1":{"name":"Giant Rat","description":"A diseased-looking rat with glowing red eyes.","hp":10,"attack":3,"defense":1,"weapon":"Poisened Claws","drops":["healingPotion","rustyDagger","ironArmor"]},"guard1":{"name":"Dungeon Guard","description":"A grim-faced guard in iron armor.","hp":30,"attack":6,"defense":3,"weapon":"Spirit Blade","drops":["key","healingPotion"],"autoAttack":true},"guard2":{"name":"Dungeon Guard","description":"A grim-faced guard in iron armor.","hp":30,"attack":6,"defense":3,"weapon":"Lightning Blade","drops":["key","healingPotion"],"autoAttack":true},"guard3":{"name":"Dungeon Guard","description":"A grim-faced guard in iron armor.","hp":30,"attack":6,"defense":3,"weapon":"Death Blade","drops":["key","healingPotion"],"autoAttack":true}};
+const items = {"torch":{"name":"Torch","description":"A wooden torch. Lights up dark places.","usable":true,"type":"light","effects":{"lightRadius":3}},"healingPotion":{"name":"Healing Potion","description":"Restores 20 HP when used.","usable":true,"type":"potion","effects":{"heal":20}},"rustyDagger":{"name":"Rusty Dagger","description":"A rusty dagger. It's not very sharp.","usable":true,"type":"weapon","effects":{"damage":10}},"ironArmor":{"name":"Iron Armor","description":"A sturdy piece of iron armor. Provides good protection.","usable":true,"type":"armor","effects":{"defense":5}}};
+const quests = {"findTorch":{"name":"Find the Torch","description":"Locate a torch in the cellar and pick it up.","requirements":{"itemCollected":"torch"},"rewards":{"xp":50,"items":["healingPotion"]},"status":"not_started"},"defeatRat":{"name":"Rat Exterminator","description":"Defeat the giant rat lurking in the cellar.","requirements":{"mobDefeated":"rat1"},"rewards":{"xp":100,"items":["goldCoin"]},"status":"not_started"}};
+const players = {"name":"Player","class":"Adventurer","level":1,"hp":100,"maxHp":100,"inventory":["torch"],"location":"room1","quests":[],"equipment":{"weapon":null,"armor":null}};
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const terminalScreen = document.getElementById('terminal-screen');
+    const terminalInput = document.getElementById('terminal-input');
+    const buttonsContainer = document.getElementById('command-buttons');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalTitle = document.getElementById('modal-title');
+    const modalBody = document.getElementById('modal-body');
+    const modalAttackBtn = document.getElementById('modal-attack-btn');
+
+    // Game data from JSON files
+    const gameData = {
+      rooms: rooms,
+      mobs: mobs,
+      items: items,
+      quests: quests,
+      player: players.player
+    };
+
+    // Remove mobStates, use only currentMobs for mob state
+    // Handle player data structure (players is directly the player object)
+    if (!gameData.player && players && players.name) {
+      gameData.player = players;
+    }
+
+    // --- Game State ---
+    let currentPlayer = { ...gameData.player };
+    // Ensure player has an attack stat
+    if (typeof currentPlayer.attack !== 'number') {
+      currentPlayer.attack = 2; // Default attack value
+    }
+    // Ensure experience is a number
+    if (typeof currentPlayer.experience !== 'number') {
+      currentPlayer.experience = 0;
+    }
+    // Ensure level is a number
+    if (typeof currentPlayer.level !== 'number') {
+      currentPlayer.level = 1;
+    }
+
+    // Level up logic
+    function tryLevelUp() {
+      let leveled = false;
+      while (currentPlayer.experience >= currentPlayer.level * 100) {
+        currentPlayer.experience -= currentPlayer.level * 100;
+        currentPlayer.level += 1;
+        // 1d10 HP increase
+        const hpGain = Math.floor(Math.random() * 10) + 1;
+        currentPlayer.maxHp += hpGain;
+        currentPlayer.hp = currentPlayer.maxHp;
+        currentPlayer.attack += 1;
+        appendToTerminal(`You leveled up! Level: ${currentPlayer.level} (+${hpGain} max HP, +1 attack). HP fully restored!`);
+        leveled = true;
+      }
+      return leveled;
+    }
+    // Ensure equipment field exists
+    if (!currentPlayer.equipment) {
+      currentPlayer.equipment = { weapon: null, armor: null };
+    } else {
+      if (!('weapon' in currentPlayer.equipment)) currentPlayer.equipment.weapon = null;
+      if (!('armor' in currentPlayer.equipment)) currentPlayer.equipment.armor = null;
+    }
+ //   let currentMobs = { ...gameData.mobs };
+// ...existing code...
+// Create a stateful copy of mobs with hp, maxHp, and alive
+let currentMobs = {};
+Object.entries(gameData.mobs).forEach(([mobId, mob]) => {
+  currentMobs[mobId] = {
+    ...mob,
+    hp: mob.hp,
+    maxHp: mob.hp,
+    alive: true
+  };
+});
+// ...existing code...
+    let gameQuests = { ...gameData.quests };
+    
+    // Helper functions for dynamic room/mob handling
+    function getCurrentRoom() {
+      return gameData.rooms[currentPlayer.location];
+    }
+    
+    function getMobInRoom(roomId) {
+      const room = gameData.rooms[roomId];
+      if (room && room.mobs && room.mobs.length > 0) {
+        const mobId = room.mobs[0];
+        return currentMobs[mobId] ? { id: mobId, ...currentMobs[mobId] } : null;
+      }
+      return null;
+    }
+    
+    function getRoomExits(roomId) {
+      const room = gameData.rooms[roomId];
+      return room ? room.exits || {} : {};
+    }
+    
+    function getRoomItems(roomId) {
+      const room = gameData.rooms[roomId];
+      return room ? room.items || [] : [];
+    }
+    
+    // Calculate attack/defense with equipment
+    function getPlayerAttack() {
+      let atk = currentPlayer.attack;
+      if (currentPlayer.equipment.weapon) {
+        const weapon = gameData.items[currentPlayer.equipment.weapon];
+        if (weapon && weapon.effects && weapon.effects.damage) {
+          atk += weapon.effects.damage;
+        }
+      }
+      return atk;
+    }
+    function getPlayerDefense() {
+      let def = currentPlayer.defense || 0;
+      if (currentPlayer.equipment.armor) {
+        const armor = gameData.items[currentPlayer.equipment.armor];
+        if (armor && armor.effects && armor.effects.defense) {
+          def += armor.effects.defense;
+        }
+      }
+      return def;
+    }
+    function calculateDamage(attacker, defender) {
+      // If attacker is player, use getPlayerAttack
+      let baseDamage = (attacker === currentPlayer) ? getPlayerAttack() : attacker.attack;
+      // If defender is player, use getPlayerDefense
+      let defense = (defender === currentPlayer) ? getPlayerDefense() : (defender.defense || 0);
+      return Math.max(1, baseDamage - defense);
+    }
+
+    function appendToTerminal(text) {
+      const p = document.createElement('p');
+      p.textContent = text;
+      terminalScreen.appendChild(p);
+      terminalScreen.scrollTop = terminalScreen.scrollHeight;
+    }
+
+    let currentAttackTarget = null;
+    let playerSkipTurn = false;
+    let mobSkipTurn = {};
+
+    function openModal(title, content, showAttackButton = false, showItemButtons = false) {
+      modalTitle.textContent = title;
+      modalBody.innerHTML = content;
+      modalOverlay.style.display = 'flex';
+      
+      if (showAttackButton && currentAttackTarget) {
+        modalAttackBtn.style.display = 'inline-block';
+        modalAttackBtn.onclick = () => {
+          performAttack(currentAttackTarget);
+        };
+      } else {
+        modalAttackBtn.style.display = 'none';
+      }
+
+      // Add item use buttons in combat
+      if (showItemButtons) {
+        // Remove any previous item buttons
+        let existing = document.getElementById('combat-item-buttons');
+        if (existing) existing.remove();
+        const itemDiv = document.createElement('div');
+        itemDiv.id = 'combat-item-buttons';
+        itemDiv.style.marginTop = '20px';
+        // Only show one button per unique item type
+        const shown = new Set();
+        currentPlayer.inventory.forEach(itemId => {
+          const item = gameData.items[itemId];
+          if (!item || shown.has(itemId)) return;
+          // Usable item (e.g., healing potion, torch)
+          if (item.usable && item.effects && (item.effects.heal || item.effects.lightRadius)) {
+            const btn = document.createElement('button');
+            btn.textContent = `Use ${item.name}`;
+            btn.className = 'command-button';
+            btn.onclick = () => {
+              useItemInCombat(itemId, currentAttackTarget);
+            };
+            itemDiv.appendChild(btn);
+            shown.add(itemId);
+          } else if (item.type === 'weapon' || item.type === 'armor') {
+            // Equippable item
+            const btn = document.createElement('button');
+            btn.textContent = `Equip ${item.name}`;
+            btn.className = 'command-button';
+            btn.onclick = () => {
+              processCommand(`equip ${itemId}`);
+            };
+            itemDiv.appendChild(btn);
+            shown.add(itemId);
+          }
+        });
+        modalBody.appendChild(itemDiv);
+      } else {
+        let existing = document.getElementById('combat-item-buttons');
+        if (existing) existing.remove();
+      }
+    }
+
+    function closeModal() {
+      modalOverlay.style.display = 'none';
+      modalAttackBtn.style.display = 'none';
+      currentAttackTarget = null;
+    }
+
+    function updateCommandButtons() {
+      buttonsContainer.innerHTML = '';
+
+      // Helper function to create buttons
+      function addButton(text, command) {
+        const button = document.createElement('button');
+        button.textContent = text;
+        button.className = 'command-button';
+        button.onclick = () => processCommand(command);
+        buttonsContainer.appendChild(button);
+      }
+
+      // Static buttons
+      addButton('Look', 'look');
+      addButton('Inventory', 'inventory');
+      addButton('Help', 'help');
+
+      // Dynamic exit buttons
+      const exits = getRoomExits(currentPlayer.location);
+      Object.keys(exits).forEach(direction => {
+        const capitalizedDirection = direction.charAt(0).toUpperCase() + direction.slice(1);
+        addButton(`Go ${capitalizedDirection}`, `go ${direction}`);
+      });
+
+      // Dynamic mob interaction buttons
+      const mob = getMobInRoom(currentPlayer.location);
+      if (mob && currentMobs[mob.id].alive) {
+        addButton(`Kill ${mob.name}`, `kill ${mob.id}`);
+      } else if (mob && !currentMobs[mob.id].alive) {
+        // Check if corpse has loot and hasn't been looted
+        if (mob.drops && mob.drops.length > 0) {
+          addButton('Loot Corpse', 'loot corpse');
+        }
+      }
+
+      // Dynamic item pickup buttons
+      const roomItems = getRoomItems(currentPlayer.location);
+      roomItems.forEach(itemId => {
+        const item = gameData.items[itemId];
+        if (item) {
+          addButton(`Take ${item.name}`, `take ${itemId}`);
+        }
+      });
+
+      // Item usage/equip buttons for unique items in inventory
+      const shown = new Set();
+      currentPlayer.inventory.forEach(itemId => {
+        const item = gameData.items[itemId];
+        if (!item || shown.has(itemId)) return;
+        if (item.usable && item.effects && (item.effects.heal || item.effects.lightRadius)) {
+          addButton(`Use ${item.name}`, `use ${itemId}`);
+          shown.add(itemId);
+        } else if (item.type === 'weapon' || item.type === 'armor') {
+          addButton(`Equip ${item.name}`, `equip ${itemId}`);
+          shown.add(itemId);
+        }
+      });
+    }
+
+function handleModalCommand(command) {
+  const room = getCurrentRoom();
+
+  // Handle "attack:{mobId}" command
+  if (command.startsWith("attack:")) {
+    const mobId = command.split(":")[1];
+    performAttack(mobId);
+    return;
+  }
+
+  // Handle "loot:{mobId}" command
+  if (command.startsWith("loot:")) {
+    const mobId = command.split(":")[1];
+    lootCorpse(mobId);
+    return;
+  }
+
+  // Handle "look" command
+  if (command === 'look') {
+    let content = `<strong>${room.name}</strong><br><br>${room.description}<br><br>`;
+
+    // Show exits
+    const exits = getRoomExits(currentPlayer.location);
+    if (Object.keys(exits).length > 0) {
+      content += '<strong>Exits:</strong> ' + Object.keys(exits).join(', ') + '<br><br>';
+    }
+
+    // Show items
+    if (room.items?.length > 0) {
+      content += '<strong>You see:</strong><br>';
+      room.items.forEach(itemId => {
+        const item = gameData.items[itemId];
+        if (item) {
+          content += `• ${item.name}<br>`;
+        }
+      });
+      content += '<br>';
+    }
+
+    // Show mobs (alive or dead)
+    if (room.mobs?.length > 0) {
+      content += `<strong>Creatures:</strong><br>`;
+      room.mobs.forEach(mobId => {
+        const mob = currentMobs[mobId];
+        if (mob) {
+          if (mob.alive) {
+            content += `• ${mob.name} (HP: ${mob.hp}/${mob.maxHp})<br>`;
+            content += `${mob.description}<br><br>`;
+          } else {
+            content += `• The corpse of a ${mob.name.toLowerCase()}<br><br>`;
+          }
+        }
+      });
+    }
+
+    openModal('Look', content);
+    return;
+  }
+
+  // Handle "inventory" command
+  if (command === 'inventory') {
+    let content = `<strong>Player Status:</strong><br>HP: ${currentPlayer.hp}/${currentPlayer.maxHp}<br>XP: ${currentPlayer.experience}<br><br>`;
+
+    if (currentPlayer.inventory.length === 0) {
+      content += 'Your inventory is empty.';
+    } else {
+      content += '<strong>Inventory:</strong><br>';
+      currentPlayer.inventory.forEach(itemId => {
+        const item = gameData.items[itemId];
+        if (item) {
+          content += `• ${item.name}${item.usable ? ' (usable)' : ''}<br>`;
+        }
+      });
+    }
+
+    // Show active quests
+    const activeQuests = Object.values(gameQuests).filter(q => q.status === 'not_started');
+    if (activeQuests.length > 0) {
+      content += '<br><strong>Active Quests:</strong><br>';
+      activeQuests.forEach(quest => {
+        content += `• ${quest.name}: ${quest.description}<br>`;
+      });
+    }
+
+    openModal('Inventory', content);
+    return;
+  }
+}
+
+
+    function performAttack(mobId) {
+      const mob = currentMobs[mobId];
+      if (!mob || !mob.alive) {
+        appendToTerminal(`The ${gameData.mobs[mobId].name.toLowerCase()} is already dead.`);
+        openModal('Combat', `The ${gameData.mobs[mobId].name.toLowerCase()} lies defeated.`, false);
+        return;
+      }
+
+      // Get weapon names
+      const playerWeapon = currentPlayer.equipment.weapon ? (gameData.items[currentPlayer.equipment.weapon]?.name || "weapon") : "fist";
+      const mobWeapon = mob.weapon ? (gameData.items[mob.weapon]?.name || mob.weapon) : "fist";
+
+      // Collect round messages
+      let roundMsgs = [];
+
+      // Player fumble/miss logic
+      if (playerSkipTurn) {
+        roundMsgs.push("You are busy pulling your weapon out of the ground!");
+        playerSkipTurn = false;
+      } else {
+        const missRoll = Math.random();
+        if (missRoll < 0.05) { // 5% fumble
+          roundMsgs.push(`Critical fumble! Your ${playerWeapon} sticks in the ground. You must pull it out next turn!`);
+          playerSkipTurn = true;
+        } else if (missRoll < 0.25) { // 20% miss (5% fumble + 20% miss = 25% total miss/fumble)
+          roundMsgs.push(`You swing your ${playerWeapon} wildly and miss!`);
+        } else {
+          const damage = calculateDamage(currentPlayer, mob);
+          mob.hp -= damage;
+          roundMsgs.push(`You swing with your ${playerWeapon} and hit the ${mob.name.toLowerCase()} for ${damage} damage!`);
+        }
+      }
+
+      if (mob.hp <= 0) {
+        mob.alive = false;
+        mob.hp = 0;
+        roundMsgs.push(`The ${mob.name.toLowerCase()} falls to the ground, defeated!`);
+        roundMsgs.push(`You have vanquished the ${mob.name.toLowerCase()}!`);
+        roundMsgs.forEach(m => appendToTerminal(m));
+        openModal('Combat', roundMsgs.join('<br>'), false);
+        currentAttackTarget = null;
+        // Check quest completion
+        checkQuestCompletion('mobDefeated', mobId);
+      } else {
+        // Mob fumble/miss logic
+        if (!mobSkipTurn[mobId]) {
+          const mobMissRoll = Math.random();
+          if (mobMissRoll < 0.05) {
+            roundMsgs.push(`The ${mob.name.toLowerCase()} fumbles and gets tangled up! It loses its next attack.`);
+            mobSkipTurn[mobId] = true;
+          } else if (mobMissRoll < 0.25) {
+            roundMsgs.push(`The ${mob.name.toLowerCase()} attacks with their ${mobWeapon} but misses!`);
+          } else {
+            const mobDamage = calculateDamage(mob, currentPlayer);
+            currentPlayer.hp -= mobDamage;
+            roundMsgs.push(`The ${mob.name.toLowerCase()} swings with their ${mobWeapon} and hits you for ${mobDamage} damage!`);
+          }
+        } else {
+          roundMsgs.push(`The ${mob.name.toLowerCase()} is still recovering from its blunder!`);
+          mobSkipTurn[mobId] = false;
+        }
+        if (currentPlayer.hp <= 0) {
+          currentPlayer.hp = 0;
+          roundMsgs.push('You have been defeated!');
+          roundMsgs.forEach(m => appendToTerminal(m));
+          openModal('Defeat', 'You have been defeated by the enemy! Refresh to try again.', false);
+          currentAttackTarget = null;
+        } else {
+          roundMsgs.push(`You: ${currentPlayer.hp}/${currentPlayer.maxHp} HP<br>${mob.name}: ${mob.hp}/${mob.maxHp} HP`);
+          roundMsgs.forEach(m => appendToTerminal(m.replace(/<br>/g, ' ')));
+          currentAttackTarget = mobId;
+          openModal('Combat', roundMsgs.join('<br>'), true, true); // show attack again and item buttons
+        }
+      }
+
+      updateCommandButtons();
+    }
+    
+    function checkQuestCompletion(type, target) {
+      Object.keys(gameQuests).forEach(questId => {
+        const quest = gameQuests[questId];
+        if (quest.status === 'not_started' && quest.requirements[type] === target) {
+          quest.status = 'completed';
+          appendToTerminal(`Quest completed: ${quest.name}!`);
+          appendToTerminal(`You gained ${quest.rewards.xp} experience!`);
+          currentPlayer.experience += quest.rewards.xp;
+          tryLevelUp();
+          // Add reward items to inventory
+          if (quest.rewards.items) {
+            quest.rewards.items.forEach(itemId => {
+              currentPlayer.inventory.push(itemId);
+              const item = gameData.items[itemId];
+              if (item) {
+                appendToTerminal(`You received: ${item.name}!`);
+              }
+            });
+          }
+        }
+      });
+    }
+
+    function processCommand(command) {
+      command = command.toLowerCase().trim();
+      appendToTerminal(`> ${command}`);
+
+      if (command === 'help') {
+        appendToTerminal("Available commands:");
+        appendToTerminal("• 'look' - Examine your surroundings");
+        appendToTerminal("• 'go [direction]' - Move in a direction (north, south, east, west)");
+        appendToTerminal("• 'take [item]' - Pick up an item");
+        appendToTerminal("• 'use [item]' - Use an item from your inventory");
+        appendToTerminal("• 'equip [item]' - Equip a weapon or armor from your inventory");
+        appendToTerminal("• 'unequip [slot]' - Unequip your weapon or armor");
+        appendToTerminal("• 'kill [target]' - Attack a creature");
+        appendToTerminal("• 'loot corpse' - Search a defeated enemy");
+        appendToTerminal("• 'inventory' - View your status, items, and quests");
+        appendToTerminal("• 'level' - Show your current level and XP progress");
+      } else if (command === 'look') {
+        handleModalCommand('look');
+      } else if (command.startsWith('go ')) {
+        const direction = command.substring(3);
+        const exits = getRoomExits(currentPlayer.location);
+        
+        if (exits[direction]) {
+          currentPlayer.location = exits[direction];
+          const newRoom = getCurrentRoom();
+          if (newRoom) {
+            appendToTerminal(`You move ${direction}.`);
+            appendToTerminal(`${newRoom.name}: ${newRoom.description}`);
+          } else {
+            appendToTerminal(`You move ${direction}, but something seems wrong with this area.`);
+          }
+          updateCommandButtons();
+        } else {
+          appendToTerminal(`You can't go ${direction} from here.`);
+        }
+      } else if (command.startsWith('kill ')) {
+        const target = command.substring(5);
+        const mob = getMobInRoom(currentPlayer.location);
+        
+        if (mob && mob.id === target && currentMobs[mob.id].alive) {
+          performAttack(mob.id);
+        } else {
+          appendToTerminal(`You can't kill ${target} here.`);
+        }
+      } else if (command.startsWith('take ')) {
+        const itemId = command.substring(5);
+        const roomItems = getRoomItems(currentPlayer.location);
+        
+        if (roomItems.includes(itemId)) {
+          const item = gameData.items[itemId];
+          if (item) {
+            currentPlayer.inventory.push(itemId);
+            
+            // Remove item from room
+            const room = gameData.rooms[currentPlayer.location];
+            room.items = room.items.filter(id => id !== itemId);
+            
+            appendToTerminal(`You pick up the ${item.name}.`);
+            appendToTerminal(item.description);
+            
+            // Check quest completion
+            checkQuestCompletion('itemCollected', itemId);
+          } else {
+            appendToTerminal(`That item doesn't exist.`);
+          }
+        } else {
+          appendToTerminal(`There's no ${itemId} here to take.`);
+        }
+      } else if (command.startsWith('use ')) {
+        let itemArg = command.substring(4).toLowerCase();
+        // Try to find item in inventory by id or name
+        let foundItemId = null;
+        for (const invId of currentPlayer.inventory) {
+          const item = gameData.items[invId];
+          if (!item) continue;
+          if (invId.toLowerCase() === itemArg || item.name.toLowerCase() === itemArg) {
+            foundItemId = invId;
+            break;
+          }
+        }
+        if (foundItemId) {
+          const item = gameData.items[foundItemId];
+          if (item && item.usable && item.effects) {
+            // Apply item effects
+            if (item.effects.heal) {
+              const healAmount = Math.min(item.effects.heal, currentPlayer.maxHp - currentPlayer.hp);
+              currentPlayer.hp += healAmount;
+              appendToTerminal(`You use the ${item.name} and recover ${healAmount} HP!`);
+              appendToTerminal(`Current HP: ${currentPlayer.hp}/${currentPlayer.maxHp}`);
+              // Remove item from inventory (consumable)
+              currentPlayer.inventory = currentPlayer.inventory.filter(id => id !== foundItemId);
+            }
+            if (item.effects.lightRadius) {
+              appendToTerminal(`You light the ${item.name}. The area around you brightens.`);
+              // Remove item from inventory (single use)
+              currentPlayer.inventory = currentPlayer.inventory.filter(id => id !== foundItemId);
+              // Could implement light mechanics here
+            }
+          } else if (item) {
+            appendToTerminal(`You can't use the ${item.name}.`);
+          } else {
+            appendToTerminal(`That item doesn't exist.`);
+          }
+        } else {
+          appendToTerminal(`You don't have a ${itemArg}.`);
+        }
+      } else if (command.startsWith('equip ')) {
+        let itemArg = command.substring(6).toLowerCase();
+        // Find item in inventory by id or name
+        let foundItemId = null;
+        for (const invId of currentPlayer.inventory) {
+          const item = gameData.items[invId];
+          if (!item) continue;
+          if (invId.toLowerCase() === itemArg || item.name.toLowerCase() === itemArg) {
+            foundItemId = invId;
+            break;
+          }
+        }
+        if (foundItemId) {
+          const item = gameData.items[foundItemId];
+          if (item.type === 'weapon' || item.type === 'armor') {
+            const slot = item.type;
+            // If something is already equipped, move it to inventory
+            if (currentPlayer.equipment[slot]) {
+              currentPlayer.inventory.push(currentPlayer.equipment[slot]);
+              appendToTerminal(`You unequip your ${gameData.items[currentPlayer.equipment[slot]].name}.`);
+            }
+            // Equip the new item
+            currentPlayer.equipment[slot] = foundItemId;
+            // Remove from inventory
+            currentPlayer.inventory = currentPlayer.inventory.filter(id => id !== foundItemId);
+            appendToTerminal(`You equip the ${item.name}.`);
+          } else {
+            appendToTerminal(`You can't equip the ${item.name}.`);
+          }
+        } else {
+          appendToTerminal(`You don't have a ${itemArg} to equip.`);
+        }
+      } else if (command.startsWith('unequip ')) {
+        let slot = command.substring(8).toLowerCase();
+        if (slot !== 'weapon' && slot !== 'armor') {
+          appendToTerminal("You can only unequip 'weapon' or 'armor'.");
+        } else if (!currentPlayer.equipment[slot]) {
+          appendToTerminal(`You have nothing equipped in the ${slot} slot.`);
+        } else {
+          // Move equipped item back to inventory
+          currentPlayer.inventory.push(currentPlayer.equipment[slot]);
+          appendToTerminal(`You unequip your ${gameData.items[currentPlayer.equipment[slot]].name}.`);
+          currentPlayer.equipment[slot] = null;
+        }
+      } else if (command.startsWith('loot ')) {
+        const target = command.substring(5);
+        if (target === 'corpse') {
+          const mob = getMobInRoom(currentPlayer.location);
+          if (mob && !currentMobs[mob.id].alive && mob.drops) {
+            // Add loot to inventory
+            mob.drops.forEach(itemId => {
+              const item = gameData.items[itemId];
+              if (item) {
+                currentPlayer.inventory.push(itemId);
+                appendToTerminal(`You search the corpse and find a ${item.name}!`);
+                appendToTerminal(`${item.name} has been added to your inventory.`);
+              }
+            });
+            // Clear drops so it can't be looted again
+            mob.drops = [];
+            // Remove mob from room after looting
+            const room = getCurrentRoom();
+            room.mobs = room.mobs.filter(id => id !== mob.id);
+          } else if (mob && currentMobs[mob.id].alive) {
+            appendToTerminal(`The ${mob.name.toLowerCase()} isn't dead yet.`);
+          } else {
+            appendToTerminal("There's nothing left to loot here.");
+          }
+        } else {
+          appendToTerminal(`You can't loot ${target}.`);
+        }
+      } else if (command === 'inventory') {
+        let content = `<strong>Player Status:</strong><br>HP: ${currentPlayer.hp}/${currentPlayer.maxHp}<br>XP: ${currentPlayer.experience}<br>Level: ${currentPlayer.level}<br><br>`;
+        // Show equipped items
+        content += '<strong>Equipped:</strong><br>';
+        if (currentPlayer.equipment.weapon) {
+          const weapon = gameData.items[currentPlayer.equipment.weapon];
+          content += `Weapon: ${weapon ? weapon.name : currentPlayer.equipment.weapon}<br>`;
+        } else {
+          content += 'Weapon: (none)<br>';
+        }
+        if (currentPlayer.equipment.armor) {
+          const armor = gameData.items[currentPlayer.equipment.armor];
+          content += `Armor: ${armor ? armor.name : currentPlayer.equipment.armor}<br>`;
+        } else {
+          content += 'Armor: (none)<br>';
+        }
+        content += '<br>';
+        if (currentPlayer.inventory.length === 0) {
+          content += 'Your inventory is empty.';
+        } else {
+          content += '<strong>Inventory:</strong><br>';
+          currentPlayer.inventory.forEach(itemId => {
+            const item = gameData.items[itemId];
+            if (item) {
+              content += `• ${item.name}${item.usable ? ' (usable)' : ''}<br>`;
+            }
+          });
+        }
+        
+        // Show active quests
+        const activeQuests = Object.values(gameQuests).filter(q => q.status === 'not_started');
+        if (activeQuests.length > 0) {
+          content += '<br><strong>Active Quests:</strong><br>';
+          activeQuests.forEach(quest => {
+            content += `• ${quest.name}: ${quest.description}<br>`;
+          });
+        }
+        
+        openModal('Inventory', content);
+      }
+      // Level command
+      else if (command === 'level') {
+        appendToTerminal(`Level: ${currentPlayer.level} | XP: ${currentPlayer.experience}/${currentPlayer.level * 100}`);
+      }
+
+      updateCommandButtons();
+    }
+
+    // Use item in combat (takes a turn, mob attacks after)
+    function useItemInCombat(itemId, mobId) {
+      const item = gameData.items[itemId];
+      if (!item || !item.usable || !item.effects) return;
+      let result = '';
+      if (item.effects.heal) {
+        const healAmount = Math.min(item.effects.heal, currentPlayer.maxHp - currentPlayer.hp);
+        currentPlayer.hp += healAmount;
+        result += `You use the ${item.name} and recover ${healAmount} HP!<br>`;
+        // Remove item from inventory (consumable)
+        currentPlayer.inventory = currentPlayer.inventory.filter(id => id !== itemId);
+      }
+      // Mob attacks after item use
+      const mob = currentMobs[mobId];
+      if (mob && mob.alive) {
+        const mobDamage = calculateDamage(mob, currentPlayer);
+        currentPlayer.hp -= mobDamage;
+        result += `The ${mob.name.toLowerCase()} strikes while you use the item for ${mobDamage} damage!<br>`;
+        if (currentPlayer.hp <= 0) {
+          currentPlayer.hp = 0;
+          appendToTerminal('You have been defeated!');
+          openModal('Defeat', 'You have been defeated by the enemy! Refresh to try again.', false);
+          currentAttackTarget = null;
+          updateCommandButtons();
+          return;
+        }
+        // Show updated combat modal
+        const content = result + `Your HP: ${currentPlayer.hp}/${currentPlayer.maxHp}<br>${mob.name} HP: ${mob.hp}/${mob.maxHp}`;
+        currentAttackTarget = mobId;
+        openModal('Combat', content, true, true);
+      }
+      updateCommandButtons();
+    }
+
+    // Terminal input handling
+    terminalInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const command = terminalInput.value.trim();
+        if (command) {
+          processCommand(command);
+          terminalInput.value = '';
+        }
+      }
+    });
+
+    // Modal close functionality
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    modalCloseBtn.addEventListener('click', closeModal);
+    
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) {
+        closeModal();
+      }
+    });
+
+    // --- Autoattack logic ---
+    let autoAttack = false; // Set to true to enable autoattack
+
+    function tryAutoAttack() {
+      if (!autoAttack) return;
+      const mob = getMobInRoom(currentPlayer.location);
+      if (mob && mob.alive) {
+        performAttack(mob.id);
+      }
+    }
+
+    // Initialize game
+    const startRoom = getCurrentRoom();
+    if (startRoom) {
+      appendToTerminal(`${startRoom.name}: ${startRoom.description}`);
+    } else {
+      appendToTerminal('Error: Could not load starting room. Please refresh the page.');
+    }
+    updateCommandButtons();
+    tryAutoAttack();
+  });
+})();</script> 

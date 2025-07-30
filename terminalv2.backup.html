@@ -1,0 +1,126 @@
+<!DOCTYPE html><html data-astro-cid-ttcj5dmi> <head><title>Modular MUD</title><style>body{font-family:sans-serif;background:#111;color:#eee;margin:0;padding:1rem}#terminal[data-astro-cid-ttcj5dmi]{background:#222;padding:1rem;border-radius:8px;min-height:300px;white-space:pre-wrap}#actions[data-astro-cid-ttcj5dmi] button[data-astro-cid-ttcj5dmi]{margin:.25rem;padding:.5rem 1rem;background:#333;color:#eee;border:none;border-radius:4px;cursor:pointer}#actions[data-astro-cid-ttcj5dmi] button[data-astro-cid-ttcj5dmi]:hover{background:#555}.modal[data-astro-cid-ttcj5dmi]{position:fixed;inset:0;background:#000c;display:none;justify-content:center;align-items:center;z-index:100}.modal[data-astro-cid-ttcj5dmi].active{display:flex}.modal-content[data-astro-cid-ttcj5dmi]{background:#222;padding:2rem;border-radius:10px;max-width:500px;color:#fff}
+</style></head> <body data-astro-cid-ttcj5dmi> <h1 data-astro-cid-ttcj5dmi>MUD Game UI</h1> <div id="terminal" data-astro-cid-ttcj5dmi></div> <div id="actions" data-astro-cid-ttcj5dmi></div> <div class="modal" id="modal" data-astro-cid-ttcj5dmi> <div class="modal-content" data-astro-cid-ttcj5dmi> <h2 id="modal-title" data-astro-cid-ttcj5dmi></h2> <p id="modal-content" data-astro-cid-ttcj5dmi></p> <button onclick="closeModal()" data-astro-cid-ttcj5dmi>Close</button> <button id="attack-again-btn" style="display:none" onclick="attackAgain()" data-astro-cid-ttcj5dmi>Attack Again</button> </div> </div> <!-- JSON Data Embeds --> <script id="rooms-data" type="application/json">{JSON.stringify(rooms)}</script> <script id="mobs-data" type="application/json">{JSON.stringify(mobs)}</script> <script id="items-data" type="application/json">{JSON.stringify(items)}</script> <script id="player-data" type="application/json">{JSON.stringify(player)}</script> <script id="quests-data" type="application/json">{JSON.stringify(quests)}</script> <script type="module">
+      const rooms = JSON.parse(document.getElementById('rooms-data').textContent);
+      const mobs = JSON.parse(document.getElementById('mobs-data').textContent);
+      const items = JSON.parse(document.getElementById('items-data').textContent);
+      const player = JSON.parse(document.getElementById('player-data').textContent);
+      const quests = JSON.parse(document.getElementById('quests-data').textContent);
+
+      const terminal = document.getElementById('terminal');
+      const actionsDiv = document.getElementById('actions');
+      const modal = document.getElementById('modal');
+      const modalTitle = document.getElementById('modal-title');
+      const modalContent = document.getElementById('modal-content');
+      const attackAgainBtn = document.getElementById('attack-again-btn');
+
+      function renderRoom() {
+        const room = rooms[player.location];
+        terminal.textContent = `${room.name}\n${room.description}`;
+
+        if (room.items?.length) {
+          terminal.textContent += `\nItems: ${room.items.join(', ')}`;
+        }
+        if (room.mobs?.length) {
+          terminal.textContent += `\nEnemies: ${room.mobs.map(m => mobs[m]?.name || m).join(', ')}`;
+        }
+
+        renderActions(room);
+      }
+
+      function renderActions(room) {
+        actionsDiv.innerHTML = '';
+
+        for (const dir in room.exits) {
+          const btn = document.createElement('button');
+          btn.textContent = `Go ${dir}`;
+          btn.onclick = () => {
+            player.location = room.exits[dir];
+            renderRoom();
+          };
+          actionsDiv.appendChild(btn);
+        }
+
+        for (const item of room.items || []) {
+          const btn = document.createElement('button');
+          btn.textContent = `Pick up ${item}`;
+          btn.onclick = () => {
+            player.inventory.push(item);
+            room.items = room.items.filter(i => i !== item);
+            terminal.textContent += `\nYou picked up a ${items[item]?.name || item}.`;
+            checkQuests();
+            renderRoom();
+          };
+          actionsDiv.appendChild(btn);
+        }
+
+        for (const mobKey of room.mobs || []) {
+          const mob = mobs[mobKey];
+          const btn = document.createElement('button');
+          btn.textContent = `Fight ${mob.name}`;
+          btn.onclick = () => {
+            fightMob(mobKey);
+          };
+          actionsDiv.appendChild(btn);
+        }
+      }
+
+      function checkQuests() {
+        for (const key in quests) {
+          const q = quests[key];
+          if (q.status === 'not_started') {
+            if (q.requirements.itemCollected && player.inventory.includes(q.requirements.itemCollected)) {
+              q.status = 'completed';
+              terminal.textContent += `\nQuest Completed: ${q.name}!`;
+              for (const reward of q.rewards.items || []) {
+                player.inventory.push(reward);
+              }
+            }
+            if (q.requirements.mobDefeated && !Object.values(rooms).some(r => r.mobs.includes(q.requirements.mobDefeated))) {
+              q.status = 'completed';
+              terminal.textContent += `\nQuest Completed: ${q.name}!`;
+              for (const reward of q.rewards.items || []) {
+                player.inventory.push(reward);
+              }
+            }
+          }
+        }
+      }
+
+      let currentMobKey = null;
+
+      function fightMob(mobKey) {
+        currentMobKey = mobKey;
+        const mob = mobs[mobKey];
+        const damage = Math.max(player.attack || 5 - mob.defense, 1);
+        mob.hp -= damage;
+        let msg = `You hit the ${mob.name} for ${damage} damage!`;
+
+        if (mob.hp <= 0) {
+          msg += `\nYou defeated the ${mob.name}!`;
+          const room = rooms[player.location];
+          room.mobs = room.mobs.filter(m => m !== mobKey);
+          checkQuests();
+          attackAgainBtn.style.display = 'none';
+        } else {
+          attackAgainBtn.style.display = 'inline-block';
+        }
+
+        openModal(mob.name, msg);
+      }
+
+      function attackAgain() {
+        fightMob(currentMobKey);
+      }
+
+      function openModal(title, content) {
+        modalTitle.textContent = title;
+        modalContent.textContent = content;
+        modal.classList.add('active');
+      }
+
+      function closeModal() {
+        modal.classList.remove('active');
+      }
+
+      renderRoom();
+    </script> </body> </html>
