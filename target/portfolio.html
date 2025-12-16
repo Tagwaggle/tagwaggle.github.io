@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio · Joey Guynes</title>
+    <meta name="description" content="Selected work by Joey Guynes" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Montserrat:wght@400;600;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="index.html">JG</a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">☰</button>
+        <ul id="nav-menu" class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🟢 Neon</button>
+      </nav>
+    </header>
+
+    <main class="page">
+      <header class="page-header">
+        <h1>Selected Work</h1>
+        <p class="lead">A mix of student outreach, workshops, and creative branding.</p>
+      </header>
+
+      <section class="grid">
+        <article class="project-card">
+          <div class="project-thumb" aria-hidden="true">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img" aria-label="Email outreach icon">
+                <rect x="1" y="4" width="22" height="16" rx="2" class="stroke" />
+                <path d="M3 7l9 6 9-6" class="stroke" />
+              </svg>
+            </div>
+          </div>
+          <h2>Themed Outreach</h2>
+          <p>Automated personalized emails using Excel + Outlook VBA, CCing mentors and mapping course names.</p>
+          <p><a href="\assets\files\email_case.png" target="_blank">View sample email (PDF)</a></p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-thumb" aria-hidden="true">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img" aria-label="Workshop icon">
+                <path d="M12 2v6" class="stroke" />
+                <path d="M5 9l14 0" class="stroke" />
+                <path d="M8 13l8 0" class="stroke" />
+                <circle cx="12" cy="18" r="3" class="stroke" />
+              </svg>
+            </div>
+          </div>
+          <h2>Adobe Express + Firefly Workshop</h2>
+          <p>3-hour training split into beginner and advanced tracks. Branding first, then layout & design, with LLM support.</p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-thumb" aria-hidden="true">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img" aria-label="Backgrounds gallery icon">
+                <rect x="3" y="6" width="18" height="12" rx="2" class="stroke" />
+                <path d="M5 16l3-4 4 5 7-9" class="stroke" />
+              </svg>
+            </div>
+          </div>
+          <h2>Custom Teams Backgrounds and Fun Images</h2>
+          <p>“Frankenstein's Castle” comic style with Eurasian Owl; classic mahogany office with action figures, fantasy books, anime poster.</p>
+           <p><button class="btn btn-outline" id="open-gallery" aria-haspopup="dialog" aria-controls="galleryOverlay" aria-expanded="false">View gallery</button></p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2025 Joey Guynes · Let’s learn, laugh, and grow together.</p>
+    </footer>
+      <!-- Slide-in Gallery Overlay -->
+      <div class="gallery-overlay" id="galleryOverlay" aria-hidden="true">
+        <aside class="gallery-panel" role="dialog" aria-modal="true" aria-label="Gallery">
+          <header class="gallery-header">
+            <div class="gallery-title">Custom Teams Backgrounds</div>
+            <div>
+              <button class="gallery-close" id="galleryClose" aria-label="Close gallery">✕</button>
+            </div>
+          </header>
+          <div class="gallery-body">
+            <div class="carousel" id="galleryCarousel">
+              <div class="carousel-item"><img src="assets/images/castle.png" alt="Frankenstein's Castle background"></div>
+              <div class="carousel-item"><img src="assets/images/Designer.png" alt="Designer background"></div>
+              <div class="carousel-item"><img src="assets/images/honeycomb.png" alt="Honeycomb background"></div>
+              <div class="carousel-item"><img src="assets/images/instructor.png" alt="Instructor background"></div>
+              <div class="carousel-item"><img src="assets/images/jedi.png" alt="Jedi background"></div>
+              <div class="carousel-item"><img src="assets/images/Scooby_joe.png" alt="Scooby Joe background"></div>
+              <div class="carousel-item"><img src="assets/images/youvegotthis.png" alt="You've got this background"></div>
+            </div>
+            <div class="gallery-preview" id="galleryPreviewWrap" aria-live="polite">
+              <img id="galleryPreview" src="assets/images/castle.png" alt="Preview: Frankenstein's Castle background">
+              <div class="caption" id="galleryPreviewCaption">Frankenstein's Castle</div>
+            </div>
+            <div class="carousel-controls">
+              <button class="carousel-btn" id="prev">← Prev</button>
+              <button class="carousel-btn" id="next">Next →</button>
+            </div>
+          </div>
+          <div class="gallery-footer">
+            <div class="muted">Use arrow keys to navigate</div>
+            <div><a class="btn" href="assets/files" target="_blank">Download all</a></div>
+          </div>
+        </aside>
+      </div>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
