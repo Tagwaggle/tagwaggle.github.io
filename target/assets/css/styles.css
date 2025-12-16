@@ -177,7 +177,7 @@ main { flex: 1 1 auto; overflow: auto; -webkit-overflow-scrolling: touch; }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
 .project-card { background: linear-gradient(180deg, rgba(18,23,42,0.7), rgba(18,23,42,0.5)); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1rem; box-shadow: 0 10px 24px var(--shadow); }
 .project-card h2 { font-family: var(--font-display); margin-top: 0; }
-<--.project-thumb { background-image: linear-gradient(135deg, rgba(155,89,255,0.35), rgba(46,230,214,0.35)); border-radius: 12px; height: 140px; margin-bottom: 0.75rem; }-->
+/*<--.project-thumb { background-image: linear-gradient(135deg, rgba(155,89,255,0.35), rgba(46,230,214,0.35)); border-radius: 12px; height: 140px; margin-bottom: 0.75rem; }-->*/
 
 /* Buttons */
 .btn { display: inline-block; text-decoration: none; border-radius: 10px; padding: 0.6rem 0.9rem; font-weight: 600; transition: transform 120ms ease, box-shadow 120ms ease; }
@@ -195,4 +195,5 @@ main { flex: 1 1 auto; overflow: auto; -webkit-overflow-scrolling: touch; }
 .contact-card { background: rgba(18,23,42,0.55); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1rem; }
 
 /* Footer */
+
 
